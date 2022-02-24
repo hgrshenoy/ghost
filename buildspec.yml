@@ -10,13 +10,13 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -t ghost:latest .
-      - docker tag ghost:latest  $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/ghost-ecs:latest      
+      - docker tag ghost:latest  $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/ghost:latest      
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/ghost-ecs:latest
-      - printf '[{"name":"ghost","imageUri":"$ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/ghost-ecs:latest"}]' > imagedefinitions.json
+      - docker push $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/ghost:latest
+      - printf '[{"name":"ghost","imageUri":"{$ACCOUNT_ID}.dkr.ecr.{$REGION}.amazonaws.com/ghost:latest"}]' > imagedefinitions.json
 
 artifacts:
   files: imagedefinitions.json

@@ -16,7 +16,7 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/ghost:latest
-      - printf '[{"name":"ghost","imageUri":"{$ACCOUNT_ID}.dkr.ecr.{$REGION}.amazonaws.com/ghost:latest"}]' > imagedefinitions.json
+      - printf '[{"name":"ghost","imageUri":"${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/ghost:latest"}]' > imagedefinitions.json
 
 artifacts:
   files: imagedefinitions.json

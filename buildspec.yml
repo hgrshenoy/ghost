@@ -8,8 +8,8 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Docker image...          
-      - docker build -t ghost:latest .
+      - echo Pulling the Docker image...          
+      - docker pull ghost:latest 
       - docker tag ghost:latest  $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/ghost:latest      
   post_build:
     commands:

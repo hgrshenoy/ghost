@@ -10,7 +10,7 @@ phases:
       - echo Build started on `date`
       - echo Pulling the Docker image...          
       - docker pull public.ecr.aws/docker/library/ghost:latest 
-      - docker tag ghost:latest  $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/ghost:latest      
+      - docker tag public.ecr.aws/docker/library/ghost:latest  $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/ghost:latest      
   post_build:
     commands:
       - echo Build completed on `date`

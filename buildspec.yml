@@ -1,5 +1,5 @@
 version: 0.2
-#
+#CodeBuild for Conatiner Build and pushing to ECR
 phases:
   pre_build:
     commands:
